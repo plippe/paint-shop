@@ -28,17 +28,17 @@ class InputReaderSpec extends FunSuite {
 
   test("InputReader.fromLines should raise an error for an empty lines") {
     val lines = Seq.empty
-    intercept[FileFormatException$] { InputReader.fromLines(lines) }
+    intercept[FileFormatNotValidException$] { InputReader.fromLines(lines) }
   }
 
   test("InputReader.isValidFormat should raise an error for no color count") {
     val lines = Seq("1 G")
-    intercept[FileFormatException$] { InputReader.fromLines(lines) }
+    intercept[FileFormatNotValidException$] { InputReader.fromLines(lines) }
   }
 
   test("InputReader.isValidFormat should raise an error if color finish not correct") {
     val lines = Seq("1", "1 N")
-    intercept[FileFormatException$] { InputReader.fromLines(lines) }
+    intercept[FileFormatNotValidException$] { InputReader.fromLines(lines) }
   }
 
   test("InputReader.isValidFormat should return empty orders if non are given") {

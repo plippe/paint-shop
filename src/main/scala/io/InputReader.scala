@@ -6,7 +6,7 @@ import com.github.plippe.paintshop.color._
 import com.github.plippe.paintshop.customer._
 
 case object FileNotFoundException extends Exception
-case object FileFormatException extends Exception
+case object FileFormatNotValidException extends Exception
 
 object InputReader {
 
@@ -42,7 +42,7 @@ object InputReader {
 
       Input(colorCount.toInt, customerOrders)
     } catch {
-      case e: Throwable => throw FileFormatException
+      case e: Throwable => throw FileFormatNotValidException
     }
   }
 }
