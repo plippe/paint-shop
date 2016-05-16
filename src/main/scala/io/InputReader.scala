@@ -10,6 +10,12 @@ case object FileFormatNotValidException extends Exception
 
 object InputReader {
 
+  /**
+   * Extract all customer orders from a file
+   *
+   * @param filePath the path of a file containing the customer orders
+   * @return an input object representing the content of the file
+   */
   def fromFile(filePath: String): Input = {
     try {
       val file = Source.fromFile(filePath)
@@ -22,6 +28,12 @@ object InputReader {
     }
   }
 
+  /**
+   * Extract all customer orders from a list of strings
+   *
+   * @param lines an array containing the customer orders
+   * @return an input object representing the content of the array
+   */
   def fromLines(lines: Iterable[String]): Input = {
     try {
       val colorCount = lines.head.toInt

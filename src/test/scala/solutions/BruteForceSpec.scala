@@ -65,12 +65,12 @@ class BruteForceSpec extends FunSuite {
     assert(validPermutations.contains(Seq(matte3, gloss2, gloss1)))
   }
 
-  test("BruteForce.best should return empty list if no permutations are passed") {
-    assert(BruteForce.best(Seq.empty) === Seq.empty)
+  test("BruteForce.cheapest should return empty list if no permutations are passed") {
+    assert(BruteForce.cheapest(Seq.empty) === Seq.empty)
   }
 
-  test("BruteForce.best should return the permutation with lowest price") {
+  test("BruteForce.cheapest should return the permutation with lowest price") {
     val permutations = BruteForce.colorPermutations(3)
-    assert(BruteForce.best(permutations) === Seq(gloss3, gloss2, gloss1))
+    assert(BruteForce.cheapest(permutations) === Seq(gloss3, gloss2, gloss1))
   }
 }
