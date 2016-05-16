@@ -1,4 +1,4 @@
-package com.github.plippe.paintshop.input
+package com.github.plippe.paintshop.io
 
 import com.github.plippe.paintshop.customer.CustomerOrder
 

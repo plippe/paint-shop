@@ -1,4 +1,4 @@
-package com.github.plippe.paintshop.input
+package com.github.plippe.paintshop.io
 
 import scala.io.Source
 
