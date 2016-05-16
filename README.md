@@ -1,4 +1,4 @@
-# Paint Shop
+# Paint Shop &nbsp; [![Build Status Image](https://api.travis-ci.org/Plippe/paint-shop.svg?branch=master)](https://travis-ci.org/Plippe/paint-shop)
 
 You run a paint shop, and there are a few different colors of paint you can
 prepare. Each color can be either *gloss* or *matte*.
