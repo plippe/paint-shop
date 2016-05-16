@@ -1,7 +1,38 @@
-package com.github.plippe
+package com.github.plippe.paintshop
 
-object Main {
+import com.github.plippe.paintshop.io._
+import com.github.plippe.paintshop.color.Color
+import com.github.plippe.paintshop.solutions.BruteForce
+
+object Main extends Main
+trait Main extends OutputWriter {
+  val usage = """
+    |missing FILE
+    |Usage: sbt "run [FILE]"
+  """.stripMargin.trim
+
+  def fileNotFound(filePath: String): String = s"$filePath: No such file"
+  def fileFormatNotValid(filePath: String): String = s"$filePath: Format not valid"
+
   def main(args: Array[String]): Unit = {
-    println("Hello Paint Shop")
+    args.size == 1 match {
+      case false => print(usage)
+      case true => main(args.head)
+    }
+  }
+
+  def main(filePath: String): Unit = {
+    val output = try {
+      val input = InputReader.fromFile(filePath)
+      val colors = BruteForce.solve(input)
+      val output = Output.fromColors(colors)
+
+      output.text
+    } catch {
+      case FileNotFoundException => fileNotFound(filePath)
+      case FileFormatNotValidException => fileFormatNotValid(filePath)
+    }
+
+    print(output)
   }
 }

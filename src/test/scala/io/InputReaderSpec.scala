@@ -12,7 +12,7 @@ class InputReaderSpec extends FunSuite {
   }
 
   test("InputReader.fromFile should extract Input from a file") {
-    val filePath = getClass.getResource("/input.txt").getPath
+    val filePath = getClass.getResource("/input-1.txt").getPath
 
     val fromFile = InputReader.fromFile(filePath)
     val fromLines = {
